@@ -1,14 +1,31 @@
-@import "./flex.css";
-
-html,body{
-    padding: 0px;
-    margin: 0px;
-    background-color: red;
+.user{
+    width: 350px;
+    height: 350px;
+    background-color: yellow;
+}
+.user2{
+    width: 350px;
+    height: 350px;
+    background-color: saddlebrown;
 }
 
-ul,li{
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
+.userprofile, .userposts{
+    width: 150px;
+    height: 150px;
+}
+
+.userprofile {
+    background-color: red;
+}
+.userposts {
+    background-color: green;
+}
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s ease;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 
