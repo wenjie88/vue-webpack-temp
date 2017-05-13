@@ -1,4 +1,5 @@
 var htmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var webpack = require('webpack')
 var path = require('path')
 
@@ -14,7 +15,18 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loader: 'vue-loader',
+                options:{
+                    //extractCSS: true,
+                    loaders:{
+                        // css:ExtractTextPlugin.extract({
+                        //     use:'css-loader',
+                        //     fallback:'vue-style-loader'
+                        // })
+                        //css:'vue-style-loader!css-loader?importLoaders: 1!postcss-loader',
+                    },
+                    // postcss: [require('autoprefixer')()]
+                }
             },
             {
                 test: /\.js$/,
@@ -29,29 +41,24 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1
-                        }
-                    },
+                    {loader: 'css-loader',options: {importLoaders: 1 }},
                     'postcss-loader',
                 ]
             },
-            {
-                test: /.less$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1
-                        }
-                    },
-                    'postcss-loader',
-                    'less-loader'
-                ]
-            },
+            // {
+            //     test: /.less$/,
+            //     use: [
+            //         'style-loader',
+            //         {
+            //             loader: 'css-loader',
+            //             options: {
+            //                 importLoaders: 1
+            //             }
+            //         },
+            //         'postcss-loader',
+            //         'less-loader'
+            //     ]
+            // },
             {
                 test: /\.(jpg|png|gif|svg)$/i,
                 // loader: 'file-loader',
@@ -84,6 +91,7 @@ module.exports = {
             filename: 'js/[name].js', // 公共模块文件名
             minChunks: Infinity     // Infinity 表示仅仅创建公共组件块，不会把任何modules打包进去。
         }),
+        new ExtractTextPlugin("style.css")
         // new webpack.HotModuleReplacementPlugin()//热加载插件
     ],
     devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项

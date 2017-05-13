@@ -1,14 +1,4 @@
-.user{
-    width: 350px;
-    height: 350px;
-    background-color: yellow;
-}
-.user2{
-    width: 350px;
-    height: 350px;
-    background-color: saddlebrown;
-}
-
+@import './flex2.css';
 .userprofile, .userposts{
     width: 150px;
     height: 150px;

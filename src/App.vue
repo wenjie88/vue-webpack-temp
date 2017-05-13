@@ -7,6 +7,7 @@
         <div>
             <router-link to='/User/Foo'>Go to Foo</router-link>
             <router-link to='/User/Bar'>Go to Bar</router-link>
+            <img class='imgclass' src="./assets/login.jpg"/>
         </div>
         <transition name="fade">
             <router-view></router-view>
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import './css/flex2.css'
 export default {
     data() {
         return {
@@ -27,10 +29,17 @@ export default {
 }
 </script>
 
-<style lang="">
+<style scoped>
+.imgclass{
+    width:100px;
+    height: 100px;
+}
 ul {
     background-color: red;
     list-style: none;
+}
+.f{
+    display: flex;
 }
 
 
