@@ -29,3 +29,10 @@ package.json 里面script 添加 如下代码
 >"dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot"
 
 >"build": "cross-env NODE_ENV=production  webpack --progress"
+
+新建 postcss.config.js 文件
+```javascript
+module.exports = {
+    plugins: [require('autoprefixer')({browsers: ['last 5 versions']})]
+}
+```
