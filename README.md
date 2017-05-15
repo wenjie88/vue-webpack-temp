@@ -36,3 +36,5 @@ module.exports = {
     plugins: [require('autoprefixer')({browsers: ['last 5 versions']})]
 }
 ```
+
+>注意，不要缺少 .babelrc 文件
